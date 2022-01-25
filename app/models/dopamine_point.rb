@@ -1,2 +1,3 @@
 class DopaminePoint < ApplicationRecord
+
 end
