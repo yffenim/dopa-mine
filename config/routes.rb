@@ -6,7 +6,16 @@ Rails.application.routes.draw do
   # mapping get request for /dashboard to index action of DashboardController
   get "/dashboard", to: "dashboard#index"
 
+  # set root to user's home
   root 'users#home'
-  get '/signup', to: 'users#new'
+  get '/signup',  to: 'users#new'
+  
+  get '/login',   to: 'sessions#new'
+  post '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
   resources :user
+
+
+
 end
