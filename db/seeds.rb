@@ -8,12 +8,15 @@
 #
 require 'faker'
 
-5.times do
-  # why am I using user.create instead of user.new then user.save? 
-  user = User.new(
-    name: Faker::Name,
-    email: Faker::Internet.email(domain: "example.com")
-  )
-  user.save
-end
+User.destroy_all
 
+total_users = 10
+
+(1..total_users).each do |id|
+  user = User.create!(
+    # assign ID
+    id: id,
+    name: Faker::Name,
+    email: Faker::Internet.email(domain: "example.com"),
+    password: Faker::Internet.password(min_length: 8, max_length: 72, mix_case: true, special_characters: true)) 
+end

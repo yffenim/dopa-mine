@@ -8,13 +8,14 @@ class UsersController < ApplicationController
   end
 
   def new
-    # initialize new user
+    # initialize new user object before validations run
     @user = User.new
   end 
 
   def create
-    # create new user object wih user params
+    # create new user object wih user params if validations are passed
     @user = User.new(user_params)
+    # save new valid user object
     if @user.save
       flash[:success] = "Welcome to a new brain! Maybe?!"
       # where does @user redirect to?? User#home?
