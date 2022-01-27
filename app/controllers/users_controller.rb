@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # before the user accesses the show method, first call the logged_in_user method
   before_action :logged_in_user, only: [:show]
 
   def show
