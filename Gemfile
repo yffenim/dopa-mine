@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 
+# for seeding the database
+gem 'faker', '~> 2.19'
+
 # to fix the sprockets issue
 gem 'sass-rails'
 

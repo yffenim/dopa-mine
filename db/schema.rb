@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_27_164005) do
+ActiveRecord::Schema.define(version: 2022_01_27_191102) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2022_01_27_164005) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
     t.string "password_digest"
+    t.string "name"
   end
 
   add_foreign_key "comments", "Users"
