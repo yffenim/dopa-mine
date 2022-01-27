@@ -1,8 +1,11 @@
 class User < ApplicationRecord 
   has_many :activities
-  has_many :comments, as: :commented_on
 
-  # rails method to set and authenticate bcrypt password, requires password_digest
+  # destroy all commentss if user is destroyed
+  # explain commented_on
+  has_many :comments, as: :commented_on, dependent: :destroy
+ 
+  #rails method to set and authenticate bcrypt password, requires password_digest
   has_secure_password
   # reformat email
   before_save { self.email = email.downcase }
