@@ -1,19 +1,25 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show]
+
   def show
+    # load user by ID
     @user = User.find(params[:id])
   end
 
   def new
+    # initialize new user
     @user = User.new
   end 
 
   def create
+    # create new user object wih user params
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Welcome to the app!"
+      flash[:success] = "Welcome to a new brain! Maybe?!"
+      # where does @user redirect to?? User#home?
       redirect_to @user
     else
+      # render the form? Figure out the difference between using a string to render vs an object instance to redirect_to?
       render 'new'
     end
   end

@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 
+# to fix the sprockets issue
+gem 'sass-rails'
+
+# password encryption
 gem 'bcrypt-ruby', :require=>'bcrypt'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
