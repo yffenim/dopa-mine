@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_175520) do
+ActiveRecord::Schema.define(version: 2022_01_27_164005) do
 
   create_table "activities", force: :cascade do |t|
     t.string "title"
@@ -24,14 +24,25 @@ ActiveRecord::Schema.define(version: 2022_01_28_175520) do
   create_table "activities_users", id: false, force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "activity_id", null: false
+    t.index ["activity_id", "user_id"], name: "index_activities_users_on_activity_id_and_user_id"
+    t.index ["user_id", "activity_id"], name: "index_activities_users_on_user_id_and_activity_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-    t.string "name"
   end
 
 end
