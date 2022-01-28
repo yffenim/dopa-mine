@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   # destroy all commentss if user is destroyed
   # explain commented_on
-  has_many :comments, as: :commented_on, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
  
   #rails method to set and authenticate bcrypt password, requires password_digest
   has_secure_password
