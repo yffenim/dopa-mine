@@ -8,6 +8,8 @@
 #
 require 'faker'
 
+# Seed database with user
+
 User.destroy_all
 
 total_users = 10
@@ -20,3 +22,8 @@ total_users = 10
     email: Faker::Internet.email(domain: "example.com"),
     password: Faker::Internet.password(min_length: 8, max_length: 72, mix_case: true, special_characters: true)) 
 end
+
+
+# Seed database with activities
+
+# total_activites = 10
